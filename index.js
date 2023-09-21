@@ -5,8 +5,16 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// Enable CORS for all routes
-app.use(cors());
+
+// Define an array of allowed origins
+const allowedOrigins = [
+  'https://zuri-internship-stage-three-image-gallery-frontend.vercel.app',
+  'http://localhost:5173/',
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+}));
 app.use(bodyParser.json());
 
 const users = [
